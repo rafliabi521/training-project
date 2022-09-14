@@ -1,0 +1,66 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+    
+    <!-- perpus.daftarbuku tree view -->
+    <record id="perpus_daftarbuku_view_tree" model="ir.ui.view">
+        <field name="name">Daftar Buku</field>
+        <field name="model">perpus.daftarbuku</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="pengarang"/>
+                <field name="penerbit"/>
+                <field name="jumlah_buku"/>
+                <field name="kategoribuku_id"/>
+                <field name="distributor_id"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- dikimart.barang form view -->
+    <record id="perpus_daftarbuku_view_form" model="ir.ui.view">
+        <field name="name">Form Daftar Buku</field>
+        <field name="model">perpus.daftarbuku</field>
+        <field name="arch" type="xml">
+            <form string="Daftar Buku">
+                <header>
+                    <button string="Input Buku"
+                        name="%(perpus.buku_datang_action_wizzard)d"
+                        type="action"
+                        class="btn btn-primary my-3"/>
+                </header>
+                <sheet>
+                    <group name="Daftar Buku" string="Detail Buku">
+                        <field name="name" />
+                        <field name="pengarang"/>
+                        <field name="penerbit"/>
+                        <field name="jumlah_buku"/>
+                    </group>
+                    <group name="Kategori Buku" string="Kategori Buku">
+                        <field name="kategoribuku_id" />
+                    </group>
+                    <group name="Distributor" string="Distributor">
+                        <field name="distributor_id" />
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- perpus.daftarbuku action window -->
+    <record id="perpus_daftarbuku_action" model="ir.actions.act_window">
+        <field name="name">Daftar Buku</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">perpus.daftarbuku</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- This Menu Item must have a parent and an action -->
+    <menuitem
+        id="perpus_daftarbuku_menu_act"
+        name="Daftar Buku"
+        parent="perpus_koleksi_menu_categ"
+        action="perpus_daftarbuku_action"
+        sequence="20"/>
+
+</odoo>

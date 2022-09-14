@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- perpus.bukudatang form view -->
+    <record id="buku_datang_view_form_wizzard" model="ir.ui.view">
+        <field name="name">Buku Datang</field>
+        <field name="model">perpus.bukudatang</field>
+        <field name="arch" type="xml">
+            <form string="Form Kedatangan Buku">
+                <group>
+                    <field name="daftarbuku_id" />
+                    <field name="jumlah"/>
+                </group>
+
+                <footer>
+                    <button name='button_buku_datang'
+                            type='object'
+                            string='Simpan'
+                            class='btn btn-primary' />
+                    <button string='Cancel'
+                            special='cancel'
+                            class='btn btn-secondary' />
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <!-- perpus.buku action window -->
+    <record id="buku_datang_action_wizzard" model="ir.actions.act_window">
+        <field name="name">Kedatangan Buku</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">perpus.bukudatang</field>
+        <field name="view_mode">tree,form</field>
+        <field name="view_id" ref='buku_datang_view_form_wizzard' />
+        <field name="target">new</field>
+    </record>
+
+    <!-- This Menu Item must have a parent and an action -->
+    <menuitem 
+        id="buku_datang_menu_action_wizzard"
+        name="Input Buku"
+        parent="perpus_menu_root"
+        action="buku_datang_action_wizzard"
+        sequence="44"/>
+
+</odoo>

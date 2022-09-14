@@ -1,0 +1,14 @@
+<odoo>
+
+    <!-- Report Distributor -->
+    <record id="report_distributor_xlsx" model="ir.actions.report">
+        <field name="name">Distributor Excel</field>
+        <field name="model">perpus.distributor</field>
+        <field name="report_type">xlsx</field>
+        <field name="report_name">perpus.report_distributor_xlsx</field>
+        <field name="report_file">perpus.report_distributor_xlsx</field>
+        <field name="binding_model_id" ref="model_perpus_distributor"/>
+        <field name="binding_type">report</field>
+    </record>
+
+</odoo>

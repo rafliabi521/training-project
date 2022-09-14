@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- perpus.peminjaman tree view -->
+    <record id="perpus_peminjaman_view_tree" model="ir.ui.view">
+        <field name="name">Daftar Peminjaman</field>
+        <field name="model">perpus.peminjaman</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name" />
+                <field name="nama_peminjam" />
+                <field name="tgl_peminjaman" />
+                <field name="total_buku" />
+            </tree>
+        </field>
+    </record>
+
+    <!-- perpus.peminjaman form view -->
+    <record id="perpus_peminjaman_view_form" model="ir.ui.view">
+        <field name="name">Form Peminjaman</field>
+        <field name="model">perpus.peminjaman</field>
+        <field name="arch" type="xml">
+            <form string="Form Peminjaman">
+                <sheet>
+                    <group name="Form 1" string="Tranksasi Peminjaman">
+                        <field name="name" />
+                        <field name="nama_peminjam" />
+                        <field name="tgl_peminjaman" />
+                        <field name="total_buku" />
+                    </group>
+                    <group name="Form 2" string="">
+                        <field name="detailpeminjaman_ids">
+                            <tree editable="bottom">
+                                <field name="daftarbuku_id"/>
+                                <field name="qty"/>
+                            </tree>
+                        </field>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- perpus.peminjaman action window -->
+    <record id="perpus_peminjaman_action" model="ir.actions.act_window">
+        <field name="name">Peminjaman</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">perpus.peminjaman</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- This Menu Item must have a parent and an action -->
+    <menuitem 
+        id="peminjaman_view_menu_act" 
+        name="Peminjaman" 
+        parent="perpus_menu_root" 
+        action="perpus_peminjaman_action" 
+        sequence="42"/>
+
+</odoo>

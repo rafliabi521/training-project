@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- perpus.pustakawan inherit tree view -->
+    <record id="perpus_pustakawan_view_tree_inherit" model="ir.ui.view">
+        <field name="name">Daftar Pustakawan</field>
+        <field name="model">perpus.pustakawan</field>
+        <field name="mode">primary</field>
+        <field name="inherit_id" ref="perpus_person_view_tree"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='name']" position="before">
+                <field name="id_pustakawan"/>
+            </xpath>          
+        </field>
+    </record>
+
+    <!-- perpus.pustakawan inherit form view -->
+    <record id="perpus_pustakawan_view_form_inherit" model="ir.ui.view">
+        <field name="name">Form Pustakawan</field>
+        <field name="model">perpus.pustakawan</field>
+        <field name="mode">primary</field>
+        <field name="inherit_id" ref="perpus_person_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//form//sheet//group[2]" position="after">
+                <group name="id" string="ID">
+                    <field name="id_pustakawan" />
+                </group>
+            </xpath>
+            <xpath expr="//field[@name='alamat']" position="attributes">
+               <attribute name="string">Address</attribute>
+            </xpath>          
+        </field> 
+    </record>
+
+    <!-- perpus.pustakawan action window -->
+    <record id="perpus_pustakawan_action" model="ir.actions.act_window">
+        <field name="name">Pustakawan</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">perpus.pustakawan</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- This Menu Item must have a parent and an action -->
+    <menuitem 
+        id="perpus_pustkawan_menu_act"
+        name="Pustakawan"
+        parent="perpus_menu_root"
+        action="perpus_pustakawan_action"
+        sequence="20"/>
+
+</odoo>

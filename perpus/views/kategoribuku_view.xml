@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- perpus.kategoribuku tree view -->
+    <record id="perpus_kategoribuku_view_tree" model="ir.ui.view">
+        <field name="name">perpus.kategoribuku.view.tree</field>
+        <field name="model">perpus.kategoribuku</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="kode_kategori"/>
+                <field name="kode_rak"/>
+                <field name="jml_judul"/>
+                <field name="daftar"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- perpus.kategoribuku form view -->
+    <record id="perpus_kategoribuku" model="ir.ui.view">
+        <field name="name">perpus.kategoribuku.view.form</field>
+        <field name="model">perpus.kategoribuku</field>
+        <field name="arch" type="xml">
+            <form string="Kategori Buku">
+                <sheet>
+                    <group name="Form 1" string="Kategori">
+                        <!-- Add your fields here -->
+                        <field name="name"/>
+                        <field name="kode_kategori"/>
+                    </group>
+
+                    <group name="Form 2" string="Posisi Buku">
+                        <field name="kode_rak"/>
+                        <field name="daftarbuku_ids"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- perpus.kategoribuku action window -->
+    <record id="perpus_kategoribuku_action" model="ir.actions.act_window">
+        <field name="name">Kategori Buku</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">perpus.kategoribuku</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- This Menu Item must have a parent and an action -->
+    <menuitem id="perpus_kategoribuku_menu_act" 
+              name="Kategori Buku" 
+              parent="perpus_koleksi_menu_categ" 
+              action="perpus_kategoribuku_action" 
+              sequence="10"/>
+
+</odoo>

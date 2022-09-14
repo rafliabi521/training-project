@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- perpus.distributor tree view -->
+    <record id="perpus_distributor_view_tree" model="ir.ui.view">
+        <field name="name">Daftar Distributor</field>
+        <field name="model">perpus.distributor</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="alamat"/>
+                <field name="no_telp"/>
+                <field name="daftarbuku_id"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- perpus.distributor form view -->
+    <record id="perpus_distributor_view_form" model="ir.ui.view">
+        <field name="name">Form Distributor</field>
+        <field name="model">perpus.distributor</field>
+        <field name="arch" type="xml">
+            <form string="">
+                <sheet>
+                    <group name="Form" string="Detail Distributor">
+                        <field name="name"/>
+                        <field name="alamat"/>
+                        <field name="no_telp"/>
+                    </group>
+                    <group name="Form 2" string="Detail Buku">
+                        <field name="daftarbuku_id"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- perpus.distributor action window -->
+    <record id="perpus_distributor_action" model="ir.actions.act_window">
+        <field name="name">Daftar Distributor</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">perpus.distributor</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- This Menu Item must have a parent and an action -->
+    <menuitem id="perpus_distributor_menu_act" 
+              name="Distributor" 
+              parent="perpus_menu_root" 
+              action="perpus_distributor_action" 
+              sequence="40"/>
+
+</odoo>
